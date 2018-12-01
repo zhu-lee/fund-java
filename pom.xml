@@ -3,42 +3,141 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>lee.fund</groupId>
-  <artifactId>fund-parent</artifactId>
+  <artifactId>fund-all</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
+
   <!--子模块-->
   <modules>
-
+    <module>fund-remoting</module>
+    <module>fund-util</module>
+    <module>fund-task</module>
+    <module>fund-mq</module>
+    <module>fund-common</module>
+    <module>fund-serialize</module>
+    <module>lee-simple</module>
   </modules>
+
   <!--版本变量-->
   <properties>
+    <fund.version>${project.version}</fund.version>
     <encoding.source>UTF-8</encoding.source>
     <jdk.version>1.8</jdk.version>
     <lombok.version>1.18.4</lombok.version>
     <junit.version>4.12</junit.version>
     <maven.compiler.version>3.3</maven.compiler.version>
+    <netty.version>4.1.31.Final</netty.version>
+    <lombok.version>1.18.4</lombok.version>
+    <slf4j.version>1.7.25</slf4j.version>
+    <log4j.version>2.11.1</log4j.version>
+    <dom4j.version>1.6.1</dom4j.version>
+    <guava.version>27.0-jre</guava.version>
+    <commons-lang3.version>3.8</commons-lang3.version>
+    <spring.version>5.1.2.RELEASE</spring.version>
+    <spring.boot.version>2.1.0.RELEASE</spring.boot.version>
+    <reflectasm.version>1.11.0</reflectasm.version>
   </properties>
   <!--依赖管理-->
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>lee.fund</groupId>
+        <artifactId>fund-remoting</artifactId>
+        <version>${fund.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>lee.fund</groupId>
+        <artifactId>fund-util</artifactId>
+        <version>${fund.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>lee.fund</groupId>
+        <artifactId>fund-task</artifactId>
+        <version>${fund.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>lee.fund</groupId>
+        <artifactId>fund-mq</artifactId>
+        <version>${fund.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>lee.fund</groupId>
+        <artifactId>fund-common</artifactId>
+        <version>${fund.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>lee.fund</groupId>
+        <artifactId>fund-serialize</artifactId>
+        <version>${fund.version}</version>
+      </dependency>
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>${junit.version}</version>
         <scope>test</scope>
       </dependency>
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-all</artifactId>
+        <version>${netty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-slf4j-impl</artifactId>
+        <version>${log4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-core</artifactId>
+        <version>${log4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>dom4j</groupId>
+        <artifactId>dom4j</artifactId>
+        <version>${dom4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${commons-lang3.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-autoconfigure</artifactId>
+        <version>${spring.boot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.esotericsoftware</groupId>
+        <artifactId>reflectasm</artifactId>
+        <version>${reflectasm.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
   <!--上传配置-->
   <distributionManagement>
-    <repository>
+    <!--<repository>
       <id>releases</id>
       <url>${releases-url</url>
     </repository>
     <snapshotRepository>
       <id>snapshots</id>
       <url>${snapshots-url}</url>
-    </snapshotRepository>
+    </snapshotRepository>-->
   </distributionManagement>
 
   <build>
